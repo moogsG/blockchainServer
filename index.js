@@ -23,7 +23,7 @@ _http2.default.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-//_index2.default.on('connection', ws => (0, _index.initConnection)(ws));
+p2p.on('connection', ws => (0, _index.initConnection)(ws));
 console.info(`P2P server has been started on port: ${_config2.default.p2p.port} (${_config2.default.env})`);
 
 (0, _index.connectToPeers)(_config2.default.p2p.peers);
