@@ -23,15 +23,6 @@ var _actions = require('./actions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var express = require('express');
-var WebSocketServer = require('ws').Server
-var path = require('path');
-
-var PORT = process.env.P2P_PORT || 6001;
-
-var app = express();
-var server =  app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
-var p2p = new WebSocketServer({server})
 
 
 
@@ -55,5 +46,5 @@ const connectToPeers = exports.connectToPeers = newPeers => {
     });
 };
 
-exports.default = p2p;
+
 //# sourceMappingURL=index.js.map
