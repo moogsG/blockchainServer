@@ -1,5 +1,5 @@
 'use strict';
-
+var port = (process.env.PORT || 8080)
 var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
@@ -14,7 +14,7 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_http2.default.listen(_config2.default.http.port, () => console.info(`HTTP server has been started on port: ${_config2.default.http.port} (${_config2.default.env})`));
+_http2.default.listen(port, () => console.info(`HTTP server has been started on port: ${port} (${_config2.default.env})`));
 _http2.default.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
