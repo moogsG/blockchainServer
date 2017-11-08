@@ -9,6 +9,3 @@ node_modules
 
 # Nodejs log file
 npm-debug.log
-
-# Build artifacts
-dist
