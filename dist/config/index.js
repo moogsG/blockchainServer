@@ -1,5 +1,5 @@
 'use strict';
-
+var port = (process.env.PORT || 6001);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -24,7 +24,7 @@ const config = {
         port: process.env.HTTP_PORT
     },
     p2p: {
-        port: process.env.P2P_PORT,
+        port: process.env.port,
         peers: process.env.P2P_PEERS ? process.env.P2P_PEERS.split(',') : []
     }
 };
