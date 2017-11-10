@@ -79,7 +79,7 @@ const onMessage = exports.onMessage = ws => {
 const onError = exports.onError = ws => {
     const closeConnection = peer => {
         console.log(`Close connection to peer: ${peer.url}`);
-
+        _sockets2.default.remove(peer);
     };
     ws.on('close', () => closeConnection(ws));
     ws.on('error', () => closeConnection(ws));
