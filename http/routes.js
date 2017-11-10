@@ -48,7 +48,7 @@ router.post('/mine', (req, res) => {
       res.send(block);
       data = [];
     }
-    setInterval(mine, 30*1000);
+    setInterval(mine(data), 30*1000);
 });
 
 router.get('/peers', (req, res) => {
