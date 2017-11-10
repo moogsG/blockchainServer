@@ -41,7 +41,7 @@ router.post('/mine', (req, res) => {
     data = data.concat(req.body.data);
     console.log("Block: " + data);
     function mine(data) {
-      const block = (0, _block.create)(data);
+      const block = (0, _block.create)(JSON.stringify(data));
       _chain2.default.update(block);
       (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
       console.log('New block in chain has been added: ', block);
