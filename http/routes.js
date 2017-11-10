@@ -28,7 +28,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function mine(data) {
   const block = (0, _block.create)(data);
-  console.log(req.body);
   _chain2.default.update(block);
   (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
   console.log('New block in chain has been added: ', block);
@@ -47,6 +46,7 @@ router.get('/chain', (req, res) => {
 
 router.post('/mine', (req, res) => {
     data = data.concat(req.body.data);
+    console.log("Block: " + data);
     setInterval(mine, 30*1000);
 });
 
