@@ -40,7 +40,7 @@ router.get('/chain', (req, res) => {
 router.post('/mine', (req, res) => {
     data = data.concat(req.body.data);
     console.log("Block: " + data);
-    function mine(data) {
+    function mine() {
       const block = (0, _block.create)(JSON.stringify(data));
       _chain2.default.update(block);
       (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
@@ -48,7 +48,7 @@ router.post('/mine', (req, res) => {
       res.send(block);
       data = [];
     }
-    setInterval(mine(data), 30*1000);
+    setInterval(mine(), 30*1000);
 });
 
 router.get('/peers', (req, res) => {
