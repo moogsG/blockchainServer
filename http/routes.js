@@ -26,14 +26,7 @@ var _actions = require('../p2p/actions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function mine(data) {
-  const block = (0, _block.create)(data);
-  _chain2.default.update(block);
-  (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
-  console.log('New block in chain has been added: ', block);
-  res.send(block);
-  data = [];
-}
+
 const router = _express2.default.Router();
 
 var data = [];
@@ -47,6 +40,14 @@ router.get('/chain', (req, res) => {
 router.post('/mine', (req, res) => {
     data = data.concat(req.body.data);
     console.log("Block: " + data);
+    function mine(data) {
+      const block = (0, _block.create)(data);
+      _chain2.default.update(block);
+      (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
+      console.log('New block in chain has been added: ', block);
+      res.send(block);
+      data = [];
+    }
     setInterval(mine, 30*1000);
 });
 
