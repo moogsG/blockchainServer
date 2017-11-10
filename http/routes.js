@@ -37,7 +37,7 @@ function mine(data) {
 }
 const router = _express2.default.Router();
 
-const data = [];
+var data = [];
 router.get('/health-check', (req, res) => res.send('OK'));
 
 router.get('/chain', (req, res) => {
