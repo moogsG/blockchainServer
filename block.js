@@ -19,7 +19,7 @@ const calcNonce = exports.calcNonce = ({ index, prevHash, timestamp, data }) => 
     for (var x = 0; x <= 500000; x++) {
         var nonce = 0;
         let hash = _cryptoJs2.default.SHA256(index + prevHash + timestamp + data + x).toString();
-        if (hash.substring(0, 4) === '000') {
+        if (hash.substring(0, 4) === '0000') {
             console.log(x);
             return x.toString();
             break;
@@ -31,7 +31,7 @@ const calcHash = exports.calcHash = ({ index, prevHash, timestamp, data }) => {
     for (var x = 0; x <= 500000; x++) {
         var nonce = 0;
         let hash = _cryptoJs2.default.SHA256(index + prevHash + timestamp + data + x).toString();
-        if (hash.substring(0, 4) === '000') {
+        if (hash.substring(0, 4) === '0000') {
             return hash;
             break;
         }
