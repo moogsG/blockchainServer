@@ -31,15 +31,7 @@ const router = _express2.default.Router();
 
 var data = [];
 
-function mine(res) {
-  JSON.stringify(data)
-  const block = (0, _block.create)(data);
-  _chain2.default.update(block);
-  (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
-  console.log('New block in chain has been added: ', block);
-  res.send(block);
-  data = [];
-}
+
 
 router.get('/health-check', (req, res) => res.send('OK'));
 
@@ -51,7 +43,16 @@ router.get('/chain', (req, res) => {
 router.post('/mine', (req, res) => {
     data = data.concat(req.body.data);
     console.log("Block: " + data);
-    setInterval(mine(res), 30*1000);
+    function mine() {
+      JSON.stringify(data)
+      const block = (0, _block.create)(data);
+      _chain2.default.update(block);
+      (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
+      console.log('New block in chain has been added: ', block);
+      res.send(block);
+      data = [];
+    }
+    setInterval(mine, 30*1000);
 });
 
 router.get('/peers', (req, res) => {
