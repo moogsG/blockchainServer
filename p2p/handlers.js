@@ -64,7 +64,6 @@ const onMessage = exports.onMessage = ws => {
                 write(ws, (0, _actions.responseLatestMsg)());
                 break;
             case _types.MessageType.QUERY_ALL:
-                console.log("%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
                 write(ws, (0, _actions.responseChainMsg)());
                 break;
             case _types.MessageType.RESPONSE_BLOCKCHAIN:
@@ -80,7 +79,7 @@ const onMessage = exports.onMessage = ws => {
 const onError = exports.onError = ws => {
     const closeConnection = peer => {
         console.log(`Close connection to peer: ${peer.url}`);
-        _sockets2.default.remove(peer);
+
     };
     ws.on('close', () => closeConnection(ws));
     ws.on('error', () => closeConnection(ws));
