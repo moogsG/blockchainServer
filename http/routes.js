@@ -32,7 +32,7 @@ const router = _express2.default.Router();
 function mine() {
   const block = (0, _block.create)();
   _chain2.default.update(block);
-  (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
+  (0, _handlers.broadcast)((0, _actions.responseLatestMsg)(JSON.stringify({data: "BLOCKHEADZ", from: "SERVER"})));
 
   console.log('New block in chain has been added: ', block);
   return block;
