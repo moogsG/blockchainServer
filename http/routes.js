@@ -30,9 +30,9 @@ const router = _express2.default.Router();
 
 // Sends block every thirty
 function mine() {
-  const block = (0, _block.create)();
+  const block = (0, _block.create)(JSON.stringify({data: "BLOCKHEADZ", from: "SERVER"}));
   _chain2.default.update(block);
-  (0, _handlers.broadcast)((0, _actions.responseLatestMsg)(JSON.stringify({data: "BLOCKHEADZ", from: "SERVER"})));
+  (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
 
   console.log('New block in chain has been added: ', block);
   return block;
