@@ -30,7 +30,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const router = _express2.default.Router();
 
 function mine() {
-  const block = (0, _block.create)();
+  var data = ""
+  const block = (0, _block.create)(data);
   _chain2.default.update(block);
   (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
 
