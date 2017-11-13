@@ -27,13 +27,15 @@ var _actions = require('../p2p/actions');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const router = _express2.default.Router();
+
+// Sends block every thirty
 function mine() {
   const block = (0, _block.create)();
   _chain2.default.update(block);
   (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
 
   console.log('New block in chain has been added: ', block);
-  //return res.send(block);
+  return block;
 }
 setInterval(mine, 30*1000);
 router.get('/health-check', (req, res) => res.send('OK'));
