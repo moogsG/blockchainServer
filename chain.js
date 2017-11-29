@@ -58,7 +58,7 @@ const Chain = function () {
     function update(block) {
         if ((0, _block.isNewBlockValid)(block)) {
             chain.push(block);
-        }
+            }
     }
 
     function last() {

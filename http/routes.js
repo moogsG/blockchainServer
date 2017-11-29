@@ -37,7 +37,8 @@ function mine() {
   console.log('New block in chain has been added: ', block);
   return block;
 }
-setInterval(mine, 300*1000);
+//setInterval(mine, 5*1000);
+
 router.get('/health-check', (req, res) => res.send('OK'));
 
 router.get('/chain', (req, res) => {
@@ -45,13 +46,23 @@ router.get('/chain', (req, res) => {
     res.send(JSON.stringify(_chain2.default.get()));
 });
 
+if (_chain2.default.get().length % 3 == 0) {
+  function mine();
+}
+    //console.log(_chain2.chain.length);
 router.post('/mine', (req, res) => {
+
     const block = (0, _block.create)(req.body.data);
     console.log(req.body);
     _chain2.default.update(block);
     (0, _handlers.broadcast)((0, _actions.responseLatestMsg)());
     console.log('New block in chain has been added: ', block);
+
+
+
+
     res.send(block);
+
 });
 
 router.get('/peers', (req, res) => {
