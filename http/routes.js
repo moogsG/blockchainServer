@@ -37,7 +37,7 @@ function mine() {
   console.log('New block in chain has been added: ', block);
   return block;
 }
-//setInterval(mine, 5*1000);
+setInterval(serverBlock, 10*1000);
 
 router.get('/health-check', (req, res) => res.send('OK'));
 
@@ -45,10 +45,11 @@ router.get('/chain', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(_chain2.default.get()));
 });
-
-if (_chain2.default.get().length % 3 == 0) {
-  console.log("THREE")
-  mine();
+function serverBlock() {
+  if (_chain2.default.get().length % 3 == 0) {
+    console.log("THREE")
+    mine();
+  }
 }
     //console.log(_chain2.chain.length);
 router.post('/mine', (req, res) => {
