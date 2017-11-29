@@ -47,7 +47,7 @@ router.get('/chain', (req, res) => {
 });
 
 if (_chain2.default.get().length % 3 == 0) {
-  function mine();
+  mine();
 }
     //console.log(_chain2.chain.length);
 router.post('/mine', (req, res) => {
