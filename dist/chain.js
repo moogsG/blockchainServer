@@ -12,19 +12,19 @@ const Chain = function () {
     const origin = {
         index: 0,
         timestamp: 0,
-        data: '{"data":"Hello Blockchain!"}',
+        data: '{"data":"BLOCKHEADZ"}',
         prevHash: 0,
         hash: (0, _block.calcHash)({
             index: 0,
             prevHash: 0,
             timestamp: 0,
-            data: '{"data":"Hello Blockchain!"}'
+            data: '{"data":"BLOCKHEADZ!"}'
         }),
         nonce: (0, _block.calcNonce)({
             index: 0,
             prevHash: 0,
             timestamp: 0,
-            data: '{"data":"Hello Blockchain!"}'
+            data: '{"data":"BLOCKHEADZ!"}'
         })
     };
     const chain = [origin];

@@ -64,7 +64,6 @@ const onMessage = exports.onMessage = ws => {
                 write(ws, (0, _actions.responseLatestMsg)());
                 break;
             case _types.MessageType.QUERY_ALL:
-                console.log("%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
                 write(ws, (0, _actions.responseChainMsg)());
                 break;
             case _types.MessageType.RESPONSE_BLOCKCHAIN:

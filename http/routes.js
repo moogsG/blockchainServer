@@ -37,7 +37,7 @@ function mine() {
   console.log('New block in chain has been added: ', block);
   return block;
 }
-setInterval(mine, 30*1000);
+setInterval(mine, 300*1000);
 router.get('/health-check', (req, res) => res.send('OK'));
 
 router.get('/chain', (req, res) => {
